@@ -30,15 +30,34 @@ def sum_list_differences(first_list: list[int], second_list: list[int]) -> int:
     return sum
 
 def get_similarity_score(first_list: list[int], second_list: list[int]) -> int:
-    pass
+    # Get frequency of each value in second_list
+    score = 0
+    for value in first_list:
+        frequency_count = second_list.count(value)
+        score += value * frequency_count
+    # return sum of value x frequency
+    return score
 
-def __run():
-    file_name = input('Please enter the file name: ')
-    separator = '   '
+def __run_part_one(file_name: str, separator: str) -> None:
     first_location_ids_list, second_location_ids_list = __populate_location_ids_from_file(file_name, separator)
     total_distance = sum_list_differences(first_location_ids_list, second_location_ids_list)
     print('What is the total distance between your list?')
     print(f'Answer: {total_distance}')
+
+def __run_part_two(file_name: str, separator: str) -> None:
+    first_location_ids_list, second_location_ids_list = __populate_location_ids_from_file(file_name, separator)
+    similarity_score = get_similarity_score(first_location_ids_list, second_location_ids_list)
+    print('What is their similarity score?')
+    print(f'Answer: {similarity_score}')
+
+def __run() -> None:
+    part_number = int(input('Please enter the part number to run (1 or 2): '))
+    file_name = input('Please enter the file name: ')
+    separator = '   '
+    if part_number == 1:
+        __run_part_one(file_name, separator)
+    else:
+        __run_part_two(file_name, separator)
 
 if __name__ == '__main__':
     __run()
