@@ -29,6 +29,9 @@ def sum_list_differences(first_list: list[int], second_list: list[int]) -> int:
         sum += abs(first_list[i] - second_list[i])
     return sum
 
+def get_similarity_score(first_list: list[int], second_list: list[int]) -> int:
+    pass
+
 def __run():
     file_name = input('Please enter the file name: ')
     separator = '   '
