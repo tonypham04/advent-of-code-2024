@@ -1,4 +1,4 @@
-def load_reports_from_file(file_name: str, separator: str) -> list[list[int]]:
+def __load_reports_from_file(file_name: str, separator: str) -> list[list[int]]:
     reports = []
     with open(file_name, 'r', encoding = 'utf-8') as file_handler:
         for report in file_handler:
@@ -35,7 +35,7 @@ def get_num_safe_reports(reports: list[list[int]], min_diff: int, max_diff: int)
 
 def __run():
     file_name = input('Please enter the name of the file containing the report data: ')
-    reports = load_reports_from_file(file_name, ' ')
+    reports = __load_reports_from_file(file_name, ' ')
     num_safe_reports = get_num_safe_reports(reports, 1, 3)
     print('How many reports are safe?')
     print(f'Answer: {num_safe_reports}')
