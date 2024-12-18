@@ -13,13 +13,13 @@ def __is_report_safe(report: list[int], min_diff: int, max_diff: int, problem_da
     isIncreasing = None
     for i in range(0, len(report) - 1):
         if report[i] > report[i + 1]:
-            if isIncreasing != None and not isIncreasing:
-                return False
-            isIncreasing = True
-        elif report[i] < report[i + 1]:
             if isIncreasing != None and isIncreasing:
                 return False
             isIncreasing = False
+        elif report[i] < report[i + 1]:
+            if isIncreasing != None and not isIncreasing:
+                return False
+            isIncreasing = True
         else:
             return False
         if not __is_adjacent_levels_diff_safe(report[i], report[i + 1], min_diff, max_diff):
