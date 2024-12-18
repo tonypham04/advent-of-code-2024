@@ -9,7 +9,7 @@ def __is_adjacent_levels_diff_safe(level: int, adjacent_level: int, min_diff: in
     diff = abs(level - adjacent_level)
     return diff >= min_diff and diff <= max_diff
 
-def __is_report_safe(report: list[int], min_diff: int, max_diff: int) -> bool:
+def __is_report_safe(report: list[int], min_diff: int, max_diff: int, problem_dampener = None) -> bool:
     isIncreasing = None
     for i in range(0, len(report) - 1):
         if report[i] > report[i + 1]:
@@ -26,10 +26,10 @@ def __is_report_safe(report: list[int], min_diff: int, max_diff: int) -> bool:
             return False
     return True
 
-def get_num_safe_reports(reports: list[list[int]], min_diff: int, max_diff: int) -> int:
+def get_num_safe_reports(reports: list[list[int]], min_diff: int, max_diff: int, problem_dampener = None) -> int:
     num_safe_reports = 0
     for report in reports:
-        if __is_report_safe(report, min_diff, max_diff):
+        if __is_report_safe(report, min_diff, max_diff, problem_dampener):
             num_safe_reports += 1
     return num_safe_reports
 
