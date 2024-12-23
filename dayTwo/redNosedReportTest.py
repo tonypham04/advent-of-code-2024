@@ -1,5 +1,4 @@
 from redNosedReport import get_num_safe_reports
-from problemDampener import ProblemDampener
 import unittest
 
 class RedNosedReportTest(unittest.TestCase):
@@ -34,10 +33,9 @@ class RedNosedReportTest(unittest.TestCase):
         min_diff = 1
         max_diff = 3
         expected_num_safe_reports = 4
-        num_tolerated_bad_levels = 1
-        problem_dampener = ProblemDampener(num_tolerated_bad_levels)
+        is_using_problem_dampener = True
         # Act
-        sut = get_num_safe_reports(reports, min_diff, max_diff, problem_dampener)
+        sut = get_num_safe_reports(reports, min_diff, max_diff, is_using_problem_dampener)
         # Assert
         self.assertEqual(sut, expected_num_safe_reports)
 
