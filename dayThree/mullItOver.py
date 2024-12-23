@@ -11,3 +11,18 @@ def sum_all_muls(muls: list[str]) -> int:
         xy = re.findall(pattern_for_any_int, mul)
         sum += int(xy[0]) * int(xy[1])
     return sum
+
+def __obtain_data_from_file(filename: str) -> str:
+    with open(filename, 'r', encoding='utf-8') as file_handler:
+        return file_handler.read()
+
+def __run():
+    filename = input('Please enter the file name: ')
+    data = __obtain_data_from_file(filename)
+    muls = parse_corrupted_data_for_muls(data)
+    result = sum_all_muls(muls)
+    print('What do you get if you add up all of the results of the multiplications?')
+    print(f'Answer: {result}')
+
+if __name__ == '__main__':
+    __run()
