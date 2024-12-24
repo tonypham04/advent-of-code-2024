@@ -5,7 +5,8 @@ def parse_corrupted_data_for_muls(corrupted_data: str) -> tuple[str]:
     return re.findall(pattern, corrupted_data)
 
 def parse_corrpupted_data_for_muls_with_new_instructions(corrupted_data: str) -> tuple[str]:
-    pass
+    pattern = r"don't\(\).*mul\(\d+,\d+\).*?do\("
+    return parse_corrupted_data_for_muls(re.sub(pattern, '', corrupted_data))
 
 def sum_all_muls(muls: list[str]) -> int:
     sum = 0
