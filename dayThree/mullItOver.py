@@ -4,6 +4,9 @@ def parse_corrupted_data_for_muls(corrupted_data: str) -> tuple[str]:
     pattern = r'(mul\(\d+,\d+\))'
     return re.findall(pattern, corrupted_data)
 
+def parse_corrpupted_data_for_muls_with_new_instructions(corrupted_data: str) -> tuple[str]:
+    pass
+
 def sum_all_muls(muls: list[str]) -> int:
     sum = 0
     pattern_for_any_int = r'\d+'
