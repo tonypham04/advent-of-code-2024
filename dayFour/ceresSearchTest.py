@@ -1,6 +1,7 @@
 import unittest
 from ceresSearch import get_count_of_word_in_word_search
 from ceresSearch import get_count_of_word_horizontally
+from ceresSearch import get_column_of_letters_from_word_search
 
 class CeresSearchTest(unittest.TestCase):
 
@@ -34,6 +35,27 @@ class CeresSearchTest(unittest.TestCase):
         sut = get_count_of_word_horizontally(row_of_letters, search_term)
         # Assert
         self.assertEqual(expected_count, sut)
+
+    def test_get_column_of_letters_from_word_search(self):
+        # Arrange
+        word_search = [
+            ('M', 'M', 'M', 'S', 'X', 'X', 'M', 'A', 'S', 'M'),
+            ('M', 'S', 'A', 'M', 'X', 'M', 'S', 'M', 'S', 'A'),
+            ('A', 'M', 'X', 'S', 'X', 'M', 'A', 'A', 'M', 'M'),
+            ('M', 'S', 'A', 'M', 'A', 'S', 'M', 'S', 'M', 'X'),
+            ('X', 'M', 'A', 'S', 'A', 'M', 'X', 'A', 'M', 'M'),
+            ('X', 'X', 'A', 'M', 'M', 'X', 'X', 'A', 'M', 'A'),
+            ('S', 'M', 'S', 'M', 'S', 'A', 'S', 'X', 'S', 'S'),
+            ('S', 'A', 'X', 'A', 'M', 'A', 'S', 'A', 'A', 'A'),
+            ('M', 'A', 'M', 'M', 'M', 'X', 'M', 'M', 'M', 'M'),
+            ('M', 'X', 'M', 'X', 'A', 'X', 'M', 'A', 'S', 'X')
+        ]
+        column_index = 2
+        expected_result = ['M','A','X','A','A','A','S','X','M','M']
+        # Act
+        sut = get_column_of_letters_from_word_search(word_search, column_index)
+        # Assert
+        self.assertEqual(expected_result, sut)
 
 if __name__ == '__main__':
     unittest.main()

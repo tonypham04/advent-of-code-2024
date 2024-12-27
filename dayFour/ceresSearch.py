@@ -26,6 +26,13 @@ def get_count_of_word_horizontally(row_of_letters: tuple[str], search_term: str)
     count += __get_count_of_word_in_row(row_of_letters, reversed_letters_in_search_term)
     return count
 
+def get_column_of_letters_from_word_search(word_search: list[tuple[str]], column_index: int) -> list[str]:
+    if column_index > len(word_search) - 1:
+        raise IndexError
+    column_of_letters = []
+    for i in range(len(word_search)):
+        column_of_letters.append(word_search[i][column_index])
+    return column_of_letters
 
 def get_count_of_word_in_word_search(word_search: list[tuple[str]], search_term: str) -> int:
     pass
