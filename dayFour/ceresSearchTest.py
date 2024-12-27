@@ -1,5 +1,6 @@
 import unittest
 from ceresSearch import get_count_of_word_in_word_search
+from ceresSearch import get_count_of_word_horizontally
 
 class CeresSearchTest(unittest.TestCase):
 
@@ -21,6 +22,16 @@ class CeresSearchTest(unittest.TestCase):
         expected_count = 18
         # Act
         sut = get_count_of_word_in_word_search(word_search, word_to_look_for)
+        # Assert
+        self.assertEqual(expected_count, sut)
+
+    def test_get_count_of_word_horizontally(self):
+        # Arrange
+        row_of_letters = ('X', 'M', 'A', 'S', 'A', 'M', 'X', 'A', 'M', 'M')
+        search_term = 'XMAS'
+        expected_count = 2
+        # Act
+        sut = get_count_of_word_horizontally(row_of_letters, search_term)
         # Assert
         self.assertEqual(expected_count, sut)
 
